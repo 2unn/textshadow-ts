@@ -5,8 +5,8 @@ interface IGlobalStyles {
   children: ReactElement;
 }
 
-function GlobalStlyles({ children }: IGlobalStyles) {
+const GlobalStlyles: React.FC<IGlobalStyles> = ({ children }) => {
   return children;
-}
+};
 
 export default GlobalStlyles;

@@ -1,7 +1,7 @@
-import "./ToolShadow.scss";
+import React from "react";
 import { changeValue, getParent } from "../../component/Constance";
 import { textShadowItem } from "./index";
-import React from "react";
+import "./ToolShadow.scss";
 
 interface IlayerItem {
   value: textShadowItem;
@@ -11,8 +11,14 @@ interface IlayerItem {
   getId: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function LayerItem({ value, active, getId, id, deleteItem }: IlayerItem) {
-  const layerValue = changeValue(
+const LayerItem: React.FC<IlayerItem> = ({
+  value,
+  active,
+  id,
+  getId,
+  deleteItem,
+}) => {
+  const layerValue: string = changeValue(
     value.shiftright,
     value.shiftdown,
     value.blur,
@@ -131,6 +137,6 @@ function LayerItem({ value, active, getId, id, deleteItem }: IlayerItem) {
       </div>
     </li>
   );
-}
+};
 
 export default LayerItem;

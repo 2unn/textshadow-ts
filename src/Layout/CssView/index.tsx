@@ -7,8 +7,8 @@ import Wrapper from "../../component/Wrapper";
 interface ICssView {
   textShadow: Array<textShadowItem>;
 }
-function CssView({ textShadow }: ICssView) {
-  const shadowStyle = textShadow
+const CssView: React.FC<ICssView> = ({ textShadow }) => {
+  const shadowStyle: string = textShadow
     .map((val) => {
       return changeValue(
         val.shiftright,
@@ -25,6 +25,6 @@ function CssView({ textShadow }: ICssView) {
       <div className="CssPreview-wrapper">Text-shadow: {shadowStyle}</div>
     </Wrapper>
   );
-}
+};
 
 export default CssView;

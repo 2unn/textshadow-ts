@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import "./ToolShadow.scss";
 
 import {
   initShiftRight,
@@ -10,11 +9,12 @@ import {
   initColorShadow,
   initValue,
 } from "../../component/Constance";
-
 import Wrapper from "../../component/Wrapper";
 import Slider from "./Slider";
 import ColorPick from "../../component/ColorPick";
 import LayerItem from "./LayerItem";
+
+import "./ToolShadow.scss";
 
 export interface textShadowItem {
   id: string;
@@ -29,15 +29,14 @@ interface IToolShadow {
   setTakeShadow: React.Dispatch<React.SetStateAction<textShadowItem[]>>;
 }
 
-function ToolShadow({ textShadow, setTakeShadow }: IToolShadow) {
-  const [currentId, setCurrentId] = useState("0");
-  const [shiftright, setShiftright] = useState(initShiftRight);
-  const [shiftdown, setShiftDown] = useState(initShiftDown);
-  const [blur, setBlur] = useState(initBlur);
-  const [opacity, setOpacity] = useState(initOpacity);
-  const [color, setColor] = useState(initColorShadow);
+const ToolShadow: React.FC<IToolShadow> = ({ textShadow, setTakeShadow }) => {
+  const [currentId, setCurrentId] = useState<string>("0");
+  const [shiftright, setShiftright] = useState<string>(initShiftRight);
+  const [shiftdown, setShiftDown] = useState<string>(initShiftDown);
+  const [blur, setBlur] = useState<string>(initBlur);
+  const [opacity, setOpacity] = useState<string>(initOpacity);
+  const [color, setColor] = useState<string>(initColorShadow);
 
-  console.log(currentId);
   useEffect(() => {
     setTakeShadow((pre) => {
       pre.forEach((val, i) => {
@@ -143,6 +142,6 @@ function ToolShadow({ textShadow, setTakeShadow }: IToolShadow) {
       </div>
     </Wrapper>
   );
-}
+};
 
 export default ToolShadow;

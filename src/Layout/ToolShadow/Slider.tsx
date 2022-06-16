@@ -11,8 +11,14 @@ interface ISlider {
   max: string;
 }
 
-function Slider({ label, takeTextShadow, value, min, max }: ISlider) {
-  let sliderWidth;
+const Slider: React.FC<ISlider> = ({
+  label,
+  takeTextShadow,
+  value,
+  min,
+  max,
+}) => {
+  let sliderWidth: string;
   if (min === "0") {
     sliderWidth = value;
   } else {
@@ -58,6 +64,6 @@ function Slider({ label, takeTextShadow, value, min, max }: ISlider) {
       </div>
     </div>
   );
-}
+};
 
 export default memo(Slider);

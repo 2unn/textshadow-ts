@@ -6,13 +6,13 @@ interface IWrapper {
   children: React.ReactNode;
 }
 
-function Wrapper({ header, children }: IWrapper) {
+const Wrapper: React.FC<IWrapper> = ({ header, children }) => {
   return (
     <div className="wrapper-wrapper">
       {header && <div className="wrapper-header">{header}</div>}
       {children}
     </div>
   );
-}
+};
 
 export default Wrapper;

@@ -10,11 +10,11 @@ interface IPreView {
   textShadow: Array<textShadowItem>;
 }
 
-function PreView({ textShadow }: IPreView) {
-  const [textColor, setTextColor] = useState("#3d9df6");
-  const [backgroundColor, setBackGroundColor] = useState("#ffffff");
+const PreView: React.FC<IPreView> = ({ textShadow }) => {
+  const [textColor, setTextColor] = useState<string>("#3d9df6");
+  const [backgroundColor, setBackGroundColor] = useState<string>("#ffffff");
 
-  const shadowStyle = textShadow
+  const shadowStyle: string = textShadow
     .map((val) => {
       return changeValue(
         val.shiftright,
@@ -52,6 +52,6 @@ function PreView({ textShadow }: IPreView) {
       </div>
     </Wrapper>
   );
-}
+};
 
 export default PreView;
